@@ -11,4 +11,8 @@ abstract class ApiService {
 
   @GET('posts')
   Future<List<PostModel>> getPosts();
+ 
+ //heleki atilmayib sorgu
+  @POST("/post")
+  Future<Response<String>> sendPostRequest(@Body() PostModel postModel);
 }
