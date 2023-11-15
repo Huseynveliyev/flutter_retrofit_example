@@ -50,14 +50,14 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<Response<String>> sendPostRequest(PostModel postModel) async {
+  Future<String> sendPostRequest(PostModel postModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(postModel.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<Response<String>>(Options(
+        .fetch<String>(_setStreamType<String>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -73,7 +73,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = Response<String>.fromJson(_result.data!);
+    final value = _result.data!;
     return value;
   }
 

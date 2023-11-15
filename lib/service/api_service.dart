@@ -14,5 +14,5 @@ abstract class ApiService {
  
  //heleki atilmayib sorgu
   @POST("/post")
-  Future<Response<String>> sendPostRequest(@Body() PostModel postModel);
+  Future<String> sendPostRequest(@Body() PostModel postModel);
 }
